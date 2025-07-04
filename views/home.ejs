@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BlogifyX - Share Your Stories</title>
+    <%- include('./partials/head') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %> 
+
+    <% if (!locals.user) { %>
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Welcome to BlogifyX</h1>
+            <p class="hero-subtitle">Discover amazing stories, share your thoughts, and connect with passionate writers from around the world.</p>            <div class="mt-4" style="z-index: 1000; position: relative;">
+                <a href="/user/signup" class="btn btn-primary btn-lg me-3" role="button" onclick="console.log('Signup clicked'); return true;" style="pointer-events: auto; z-index: 1001;">🚀 Start Writing</a>
+                <a href="/user/signin" class="btn btn-secondary btn-lg" role="button" onclick="console.log('Signin clicked'); return true;" style="pointer-events: auto; z-index: 1001;">Sign In</a> 
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="main-content">
+        <div class="container">
+            <% if (locals.user) { %>
+                <div class="d-flex justify-content-between align-items-center py-4">
+                    <h2 style="font-family: 'Playfair Display', serif; font-weight: 600;">Latest Stories</h2>
+                    <a href="/blog/add-new" class="btn btn-primary">✍️ Write New Story</a>
+                </div>
+            <% } else { %>
+                <div class="text-center py-4">
+                    <h2 style="font-family: 'Playfair Display', serif; font-weight: 600;">Featured Stories</h2>
+                    <p class="text-muted">Discover what our community is writing about</p>
+                </div>
+            <% } %>
+
+            <div class="blog-grid">
+                <% blogs.forEach(blog => { %>
+                    <div class="card">
+                        <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="<%= blog.title %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= blog.title %></h5>
+                            <div class="blog-meta">
+                                <% if (blog.createdBy && blog.createdBy.fullName) { %>
+                                    <img src="<%= blog.createdBy.profileImageURL %>" alt="Author" class="author-avatar">
+                                    <span>By <%= blog.createdBy.fullName %></span>
+                                    <span>•</span>
+                                <% } %>
+                                <span><%= new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %></span>
+                            </div>
+                            <p class="card-text">
+                                <%= blog.body.length > 150 ? blog.body.substring(0, 150) + '...' : blog.body %>
+                            </p>
+                            <a href="blog/<%= blog._id %>" class="btn btn-primary">Read Story</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+
+            <% if (blogs.length === 0) { %>
+                <div class="text-center py-5">
+                    <h3 style="color: var(--gray);">No stories yet</h3>
+                    <p class="text-muted">Be the first to share your story!</p>
+                    <% if (locals.user) { %>
+                        <a href="/blog/add-new" class="btn btn-primary">✍️ Write First Story</a>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+      <%- include('./partials/scripts') %>
+    
+    <script>
+    // Debug script to check if buttons are clickable
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.hero-section .btn');
+        buttons.forEach((btn, index) => {
+            console.log(`Button ${index}:`, btn.href, btn.style.pointerEvents);
+            btn.addEventListener('click', function(e) {
+                console.log(`Button ${index} clicked! Going to:`, this.href);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

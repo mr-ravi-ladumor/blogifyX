@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Edit Story - BlogifyX</title>
+  </head>
+  <body>
+    <%- include('./partials/navbar') %>
+    
+    <div class="main-content">
+      <div class="container">
+        <div class="form-container">
+          <h2 class="form-title">✏️ Edit Your Story</h2>
+          <p class="text-center text-muted mb-4">Update your story and share your revised thoughts</p>
+          
+          <form action="/blog/edit/<%= blog._id %>?_method=PUT" method="post">
+            <div class="mb-4">
+              <label for="title" class="form-label">✨ Story Title *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                value="<%= blog.title %>"
+                placeholder="Enter an engaging title for your story..."
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="body" class="form-label">📝 Your Story *</label>
+              <textarea
+                id="body"
+                name="body"
+                class="form-control"
+                placeholder="Start writing your story here..."
+                rows="12"
+                required
+              ><%= blog.body %></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-lg">💾 Update Story</button>
+              <a href="/blog/<%= blog._id %>" class="btn btn-secondary btn-lg ms-3">❌ Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

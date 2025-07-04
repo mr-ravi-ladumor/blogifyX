@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Create New Story - BlogifyX</title>
+  </head>
+  <body>
+    <%- include('./partials/navbar') %>
+    
+    <div class="main-content">
+      <div class="container">
+        <div class="form-container">
+          <h2 class="form-title">✍️ Create New Story</h2>
+          <p class="text-center text-muted mb-4">Share your thoughts and experiences with the world</p>
+          
+          <form action="/blog" method="post" enctype="multipart/form-data">
+            <div class="mb-4">
+              <label for="coverImage" class="form-label">📸 Cover Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="coverImage"
+                name="coverImage"
+                accept="image/*"
+                required
+              />
+              <div class="form-text">Choose an eye-catching image for your story</div>
+            </div>
+
+            <div class="mb-4">
+              <label for="title" class="form-label">✨ Story Title *</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                name="title"
+                placeholder="Enter an engaging title for your story..."
+                required
+              />
+            </div>
+
+            <div class="mb-4">
+              <label for="body" class="form-label">📝 Your Story *</label>
+              <textarea
+                id="body"
+                name="body"
+                class="form-control"
+                placeholder="Start writing your story here... Share your thoughts, experiences, or knowledge with the world."
+                rows="12"
+                required
+              ></textarea>
+              <div class="form-text">Make it engaging and authentic. Your voice matters!</div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary btn-lg">🚀 Publish Story</button>
+              <a href="/" class="btn btn-secondary">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <%- include('./partials/scripts') %>
+  </body>
+</html>

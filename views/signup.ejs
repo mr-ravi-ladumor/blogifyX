@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Join BlogifyX - Start Your Journey</title>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">🚀 Join BlogifyX</h2>
+                <p class="text-center text-muted mb-4">Start your writing journey and connect with amazing writers</p>
+                
+                <form action="/user/signup" method="post">
+                    <div class="mb-4">
+                        <label for="fullName" class="form-label">👤 Full Name</label>
+                        <input 
+                            type="text" 
+                            name="fullName" 
+                            class="form-control" 
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="form-label">📧 Email Address</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            class="form-control" 
+                            id="email"
+                            placeholder="Enter your email address"
+                            required
+                        >
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                      <div class="mb-4">
+                        <label for="password" class="form-label">🔒 Password</label>
+                        <div class="position-relative">
+                            <input 
+                                type="password" 
+                                name="password" 
+                                class="form-control" 
+                                id="password"
+                                placeholder="Create a strong password"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 mb-4">
+                        <button type="submit" class="btn btn-primary btn-lg">✨ Create Account</button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-muted">Already have an account? 
+                            <a href="/user/signin" style="color: var(--primary); text-decoration: none; font-weight: 600;">Sign in here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
