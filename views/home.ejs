@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>BlogifyX - Share Your Stories</title>
+    <title>BlogifyX</title>
     <%- include('./partials/head') %>
 </head>
 <body>
@@ -68,18 +68,5 @@
         </div>
     </div>
       <%- include('./partials/scripts') %>
-    
-    <script>
-    // Debug script to check if buttons are clickable
-    document.addEventListener('DOMContentLoaded', function() {
-        const buttons = document.querySelectorAll('.hero-section .btn');
-        buttons.forEach((btn, index) => {
-            console.log(`Button ${index}:`, btn.href, btn.style.pointerEvents);
-            btn.addEventListener('click', function(e) {
-                console.log(`Button ${index} clicked! Going to:`, this.href);
-            });
-        });
-    });
-    </script>
 </body>
 </html>

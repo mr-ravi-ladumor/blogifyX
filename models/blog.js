@@ -9,7 +9,6 @@ blogSchema = new Schema({
         type : String,
         required : true,
     },
-
     coverImageURL : {
         type : String,
         required : true,

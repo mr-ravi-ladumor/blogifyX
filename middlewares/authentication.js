@@ -1,7 +1,7 @@
 const { validateToken } = require("../services/authentication");
 
 function checkForAuthCookie(cookieName){
-    return (req,res,next) => {
+    return (req,_,next) => {
         const tokenValue = req.cookies[cookieName];
         if(!tokenValue) return next();
 

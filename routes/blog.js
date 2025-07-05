@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     }
   })
   
-  const upload = multer({ storage: storage })
+const upload = multer({ storage: storage })
   
 
 router.get('/add-new',(req,res) => {
@@ -26,7 +26,7 @@ router.get('/:id', async (req,res) => {
     const blogId = req.params.id;
     const blog   = await Blog.findById(blogId).populate("createdBy");
 
-    const comments = await Comment.find({blogId : blogId}).populate("createdBy");;
+    const comments = await Comment.find({blogId : blogId}).populate("createdBy");
     return res.render("blog", {
       user : req.user,
       blog,
