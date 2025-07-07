@@ -38,6 +38,22 @@ A blogging platform where users can share their stories and thoughts. Built with
 
 Visit `http://localhost:3000` to see the app.
 
+## Screenshots
+
+Here's how the website looks:
+
+### HomePage
+
+![Blog View](public/images/Screenshot%202025-07-07%20154328.png)
+
+### Signin Page
+
+![Homepage](public/images/Screenshot%202025-07-07%20152854.png)
+
+### Blog View
+
+![Blog Creation](public/images/Screenshot%202025-07-07%20154349.png)
+
 ## How it works
 
 - Users can register and login
@@ -75,6 +91,5 @@ Visit `http://localhost:3000` to see the app.
      ├── images/             # Default images
      └── uploads/            # User uploaded images
 ```
-
 
 Made with ❤️ while learning full-stack development
