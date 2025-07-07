@@ -27,10 +27,19 @@ A blogging platform where users can share their stories and thoughts. Built with
    npm install
    ```
 3. Create `.env` file:
+
    ```
-   MONGODB_URI=mongodb://127.0.0.1:27017
+   MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database_name>
    PORT=3000
+   JWT_SECRET=your_jwt_secret_key
    ```
+
+   **Note:**
+
+   - Replace `<username>`, `<password>`, `<cluster>`, and `<database_name>` with your actual MongoDB Atlas credentials
+   - You can also use a local MongoDB: `mongodb://127.0.0.1:27017/blogifyx`
+   - Generate a strong JWT secret for production
+
 4. Run the app:
    ```bash
    npm start
